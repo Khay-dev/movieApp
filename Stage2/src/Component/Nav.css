@@ -1,0 +1,66 @@
+nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 90px;
+    color: #fff;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1009;
+}
+
+nav .nav-holder-1 {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 20%;
+    gap: 10px;
+}
+
+nav .nav-holder-1 span {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+nav .nav-holder-2 {
+    width: 30%;
+    position: relative;
+}
+
+nav .nav-holder-2 .icon {
+    position: absolute;
+    top: 50%;
+    left: 87%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 18px;
+}
+
+nav .nav-holder-2 input {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border-radius: 40px;
+}
+
+nav .nav-holder-3 {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+    font-size: 25px;
+
+}
+
+nav .nav-holder-3 .second {
+    background: #BE123C;
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}

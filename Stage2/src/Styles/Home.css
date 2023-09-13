@@ -1,0 +1,158 @@
+.home-hero {
+    height: 100vh;
+    position: relative;
+    background-image: url(../img/Poster.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+}
+
+.home-main-hero {
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #fff;
+    position: absolute;
+    top: 55%;
+    left: 44%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    padding-left: 30px;
+}
+
+.home-main-hero h2 {
+    font-size: clamp(2rem, 2vw + 2rem, 3.5rem);
+    line-height: 1.25;
+    font-weight: bolder;
+}
+
+.home-main-hero .home-2 {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-size: 18px;
+}
+
+.home-main-hero .home-2 .first,
+.home-main-hero .home-2 .second {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.home-main-hero .home-2 .first h3 {
+    font-weight: 700;
+    background-color: yellow;
+    color: black;
+    padding: 5px;
+}
+
+.home-main-hero .home-3 {
+    font-size: 20px;
+    width: 40%;
+}
+
+.home-main-hero .home-4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background: #BE123C;
+    width: 20%;
+    gap: 15px;
+    font-size: 20px
+}
+
+.section-1 {
+    padding: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section-1 .section-a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-1 .section-a .section-aa {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+
+.section-1 .section-a .section-ab {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1;
+    color: #BE123C;
+}
+
+
+.section-1 .section-b {
+    display: grid;
+    place-items: center;
+    align-items: center;
+    grid-template-columns: repeat(4, minmax(80px, 1fr));
+    gap: 50px;
+}
+
+.section-1 .section-b .container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.section-1 .section-b .container .main-text {
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 1.25;
+}
+
+.section-1 .section-b .container p {
+    font-size: 18px;
+    line-height: 1.25;
+    color: #6B7280;
+}
+
+.section-1 .section-b .container .ratings {
+    display: flex;
+    gap: 9px;
+}
+
+.section-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 50px;
+}
+
+.section-2 .socials {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-size: 30px;
+}
+
+.section-2 .legal {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.section-2 .copyright {
+    color: #6B7280;
+    font-size: 16px;
+}
