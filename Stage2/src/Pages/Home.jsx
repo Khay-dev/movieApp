@@ -3,7 +3,9 @@ import "../Styles/Home.css";
 import Image1 from "../img/rt.png";
 
 import axios from "axios";
+
 import { Link } from "react-router-dom";
+
 import { useState, useEffect } from "react";
 
 import {
@@ -13,29 +15,27 @@ import {
     BiLogoYoutube,
     BiLogoTwitter,
 } from "react-icons/bi";
-import { AiFillPlayCircle } from "react-icons/ai";
+import { AiFillPlayCircle, AiFillHeart } from "react-icons/ai";
+
 
 const Home = () => {
     const [data, setData] = useState([]);
     const [error, setError] = useState(null);
     async function FetchMovie() {
         let API_KEY = "ac57941d1109bbb02f4f4d5995d4ab24";
-        let data = axios
+        axios
             .get(
                 `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`
             )
             .then((res) => {
                 setData(res.data.results);
+                setError(null);
                 console.log(res.data.results);
             })
             .catch((err) => {
                 setError(err.message);
                 setData([]);
             });
-
-        if (!data.ok) {
-            throw new Error(`Movie fetch not ok`);
-        }
     }
 
     useEffect(() => {
@@ -101,6 +101,7 @@ const Home = () => {
                                     data-testid="movie-title"
                                 >
                                     {movie.title}
+                                    <AiFillHeart className="heart" />
                                 </h4>
 
                                 <div

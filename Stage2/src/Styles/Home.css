@@ -111,7 +111,18 @@
     gap: 20px;
 }
 
+.section-1 .section-b .container:hover .heart {
+    color: #BE123C;
+}
+
+.section-1 .section-b .container .heart {
+    color: #6B7280;
+}
+
 .section-1 .section-b .container .main-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     font-size: 25px;
     font-weight: bold;
     line-height: 1.1;
@@ -174,7 +185,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .section-1 .section-b {
         grid-template-columns: repeat(1, minmax(80px, 1fr));
     }
@@ -186,5 +197,27 @@
 
     .home-main-hero .home-4 {
         width: 80%;
+    }
+
+    .section-1 {
+        padding: 30px;
+    }
+
+    .section-1 .section-a .section-aa {
+        font-size: 1.5rem;
+    }
+
+    .section-1 .section-a .section-ab {
+        font-size: 14px;
+    }
+
+    .section-2 {
+        padding: 30px;
+        text-align: center;
+    }
+
+    .section-2 .legal {
+        gap: 10px;
+        font-size: 14px;
     }
 }
