@@ -1,13 +1,10 @@
-import Nav from "../Component/Nav";
 import "../Styles/Home.css";
 
-import image1 from "../img/rt.png";
-import image2 from "../img/Poster1.png";
-import image3 from "../img/Poster2.png";
-import image4 from "../img/Poster3.png";
-import image5 from "../img/Poster4.png";
+import Image1 from "../img/rt.png";
 
+import axios from "axios";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 import {
     BiChevronsRight,
@@ -19,109 +16,37 @@ import {
 import { AiFillPlayCircle } from "react-icons/ai";
 
 const Home = () => {
-    let movies = [
-        {
-            name: "Movie1",
-            img: image1,
-            ratings: "75%",
-            image: image2,
-            genre: "Action",
-            id: crypto.randomUUID(),
-        },
-        {
-            name: "Movie2",
-            img: image1,
-            ratings: "75%",
-            image: image3,
-            genre: "Action",
-            id: crypto.randomUUID(),
-        },
-        {
-            name: "Movie3",
-            img: image1,
-            ratings: "75%",
-            image: image4,
-            genre: "Action",
-            id: crypto.randomUUID(),
-        },
-        {
-            name: "Movie4",
-            img: image1,
-            ratings: "75%",
-            image: image5,
-            genre: "Action",
-            id: crypto.randomUUID(),
-        },
-        {
-            name: "Movie5",
-            img: image1,
-            ratings: "75%",
-            image: image2,
-            genre: "Action",
-            id: crypto.randomUUID(),
-        },
-        {
-            name: "Movie6",
-            img: image1,
-            ratings: "75%",
-            image: image3,
-            genre: "Action",
-            id: crypto.randomUUID(),
-        },
-        {
-            name: "Movie7",
-            img: image1,
-            ratings: "75%",
-            image: image4,
-            genre: "Action",
-            id: crypto.randomUUID(),
-        },
-        {
-            name: "Movie8",
-            img: image1,
-            ratings: "75%",
-            image: image5,
-            genre: "Action",
-            id: crypto.randomUUID(),
-        },
-        {
-            name: "Movie9",
-            img: image1,
-            ratings: "75%",
-            image: image2,
-            genre: "Action",
-            id: crypto.randomUUID(),
-        },
-        {
-            name: "Movie10",
-            img: image1,
-            ratings: "75%",
-            image: image3,
-            genre: "Action",
-            id: crypto.randomUUID(),
-        },
-        {
-            name: "Movie11",
-            img: image1,
-            ratings: "75%",
-            image: image4,
-            genre: "Action",
-            id: crypto.randomUUID(),
-        },
-        {
-            name: "Movie12",
-            img: image1,
-            ratings: "75%",
-            image: image5,
-            genre: "Action",
-            id: crypto.randomUUID(),
-        },
-    ];
+    const [data, setData] = useState([]);
+    const [error, setError] = useState(null);
+    async function FetchMovie() {
+        let API_KEY = "ac57941d1109bbb02f4f4d5995d4ab24";
+        let data = axios
+            .get(
+                `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`
+            )
+            .then((res) => {
+                setData(res.data.results);
+                console.log(res.data.results);
+            })
+            .catch((err) => {
+                setError(err.message);
+                setData([]);
+            });
+
+        if (!data.ok) {
+            throw new Error(`Movie fetch not ok`);
+        }
+    }
+
+    useEffect(() => {
+        FetchMovie();
+    }, []);
+
+    const moviesData = data.slice(0, 10);
 
     return (
         <div>
             <div className="home-hero">
-                <Nav />
                 <div className="home-main-hero">
                     <h2>
                         John Wick 3 : <br /> Parabellum
@@ -132,7 +57,7 @@ const Home = () => {
                             <p>86.0/100</p>
                         </div>
                         <div className="second">
-                            <img src={image1} alt="tomatoes" />
+                            <img src={Image1} alt="tomatoes" />
                             <p>97%</p>
                         </div>
                     </div>
@@ -158,19 +83,36 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="section-b">
-                    {movies.map((movie) => (
-                        <Link className="container" key={movie.id}>
-                            <img src={movie.image} alt="pics" />
+                    {moviesData.map((movie) => (
+                        <Link
+                            to={`/details/${movie.id}`}
+                            className="container"
+                            key={movie.id}
+                            data-testid="movie-card"
+                        >
+                            <img
+                                src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                                alt="picture"
+                                data-testid="movie-poster"
+                            />
                             <div className="text">
-                                <h4 className="main-text">{movie.name}</h4>
-                                <div className="ratings">
-                                    <img src={movie.img} alt="" />
-                                    <span>{movie.ratings}</span>
+                                <h4
+                                    className="main-text"
+                                    data-testid="movie-title"
+                                >
+                                    {movie.title}
+                                </h4>
+
+                                <div
+                                    className="release"
+                                    data-testid="movie-release-date"
+                                >
+                                    Date: {movie.release_date}
                                 </div>
-                                <p>{movie.genre}</p>
                             </div>
                         </Link>
                     ))}
+                    {error && <div>Error: {error}</div>}
                 </div>
             </section>
             <section className="section-2">

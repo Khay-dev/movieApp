@@ -2,14 +2,15 @@ import Logo from "../img/logo.png";
 import { CiMenuFries } from "react-icons/ci";
 import "./Nav.css";
 import { BiSearch } from "react-icons/bi";
+import { Link } from "react-router-dom";
 const Nav = () => {
     return (
         <>
             <nav>
-                <div className="nav-holder-1">
+                <Link to={"/"} className="nav-holder-1">
                     <img src={Logo} alt="logo" />
                     <span>MovieBox</span>
-                </div>
+                </Link>
 
                 <div className="nav-holder-2">
                     <BiSearch className="icon" />
