@@ -32,7 +32,7 @@
     display: flex;
     align-items: center;
     gap: 30px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .home-main-hero .home-2 .first,
@@ -51,7 +51,7 @@
 
 .home-main-hero .home-3 {
     font-size: 20px;
-    width: 40%;
+    width: 35%;
 }
 
 .home-main-hero .home-4 {
@@ -60,9 +60,9 @@
     justify-content: center;
     padding: 10px 20px;
     background: #BE123C;
-    width: 20%;
+    width: 40%;
     gap: 15px;
-    font-size: 20px
+    font-size: 18px
 }
 
 .section-1 {
